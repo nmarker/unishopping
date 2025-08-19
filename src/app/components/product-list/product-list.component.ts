@@ -19,8 +19,8 @@ interface ProductWithImages extends Product {
   template: `
     
     <div class="container">
-      <h2>UniSparkle – Sparkle in Every Celebration</h2>
-      <div class="hero-carousel" *ngIf="slides && slides.length" [style.background]="slides[currentSlide]?.bg">
+      <h2>UniSparkle – Where every moment gets its glitter.</h2>
+      <div class="hero-carousel" *ngIf="slides && slides.length" [style.background-image]="slides[currentSlide]?.bg">
         <button mat-icon-button class="hero-nav prev" (click)="prevSlide()" aria-label="Previous slide">
           <mat-icon>chevron_left</mat-icon>
         </button>
@@ -224,33 +224,29 @@ interface ProductWithImages extends Product {
       margin-bottom: 24px;
       color: #2d3748; /* darker default text for contrast on light gold */
       /* Layered background: photo with dark overlay for contrast */
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.45) 80%),
-        url('/assets/carouselbackground_4.jpg');
-      background-size:
-        100% 100%,
-        cover;
-      background-position: center center, center center;
-      background-repeat: no-repeat, no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
       background-blend-mode: normal, normal;
       //box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-  /* Update text colors for better contrast */
-  .hero-title {
-    color: #2d3748; /* Dark gray for titles */
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-  }
-  .hero-subtitle {
-    color: #4a5568; /* Medium gray for subtitles */
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-  }
+    /* Update text colors for better contrast */
+    .hero-title {
+      color: #2d3748; /* Dark gray for titles */
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    }
+    .hero-subtitle {
+      color: #4a5568; /* Medium gray for subtitles */
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    }
     .hero-content {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       align-items: center;
       gap: 16px;
       padding: 24px;
+      background-color: rgba(255, 255, 255, 0.3);
     }
     
     .hero-image {
@@ -348,24 +344,32 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   private buildSlides(): void {
+    const bgImages = [
+      '/assets/carouselbackground_4.jpg',
+      '/assets/carouselbackground_5.jpg',
+      '/assets/carouselbackground_6.jpg',
+      '/assets/carouselbackground_7.jpg'
+    ];
+    const gradient =
+      "linear-gradient(180deg, rgba(255, 245, 141, 0.38) 0%, rgba(0,0,0,0.1) 25%, rgba(224, 224, 224, 0.2) 50%)";
     this.slides = [
       {
         title: 'Shine for Every Celebration',
         subtitle: 'Discover handcrafted ornaments that light up your moments.',
-        image: 'assets/banner1.jpg',
-        bg: ''
+        image: 'assets/diwali_4.png',
+        bg: `url('${bgImages[0 % bgImages.length]}')`
       },
       {
         title: 'Color, Craft & Joy',
         subtitle: 'Festive designs inspired by traditions around the world.',
-        image: 'assets/banner2.jpg',
-        bg: ''
+        image: 'assets/diwali_3.png',
+        bg: `url('${bgImages[1 % bgImages.length]}')`
       },
       {
         title: 'Make It Memorable',
         subtitle: 'Premium pieces for weddings, festivals, and parties.',
-        image: 'assets/banner3.jpg',
-        bg: ''
+        image: 'assets/diwali_2.png',
+        bg: `url('${bgImages[2 % bgImages.length]}')`
       }
     ];
   }
