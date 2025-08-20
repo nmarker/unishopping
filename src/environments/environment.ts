@@ -7,6 +7,8 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const environment = {
+  production: false,
+  firebase: {
   apiKey: "AIzaSyCftXKnXpRfQS4LQeqfnUX06JsBirdSziA",
   authDomain: "charkashopping.firebaseapp.com",
   projectId: "charkashopping",
@@ -14,6 +16,7 @@ export const environment = {
   messagingSenderId: "943632858296",
   appId: "1:943632858296:web:065cf90c8ccfd7fcb5484d",
   measurementId: "G-HZVLL6D1S7"
+  }
 };
 
 // Initialize Firebase

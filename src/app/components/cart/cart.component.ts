@@ -7,9 +7,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
 import { Router, RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
   selector: 'app-image-viewer',
@@ -17,13 +18,12 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     CurrencyPipe,
-    AsyncPipe,
     RouterModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    // Add other required modules here
+    MatIcon
   ],
   template: `
     <div class="image-viewer-container">
@@ -428,6 +428,17 @@ export class ConfirmDialogComponent {
 
 @Component({
   selector: 'app-cart',
+  standalone: true, // Add this if it's a standalone component
+  imports: [
+    CommonModule,
+    CurrencyPipe, // This provides the currency pipe
+    AsyncPipe,
+    RouterModule,
+    MatIconModule, // This provides mat-icon
+    MatButtonModule, // This provides mat-button
+    MatCardModule, // This provides mat-card and mat-card-content
+    MatDialogModule
+  ],
   template: `
     <div class="container">
       <h2>Shopping Cart</h2>

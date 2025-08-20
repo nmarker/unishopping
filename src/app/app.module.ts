@@ -36,10 +36,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // REMOVE NavbarComponent from declarations - it's standalone  
-    CartComponent,
-  ],
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,7 +44,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ReactiveFormsModule,
     
     // Firebase
-    AngularFireModule.initializeApp(environment),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     
     // Router
@@ -80,6 +77,6 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     MatMenuModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

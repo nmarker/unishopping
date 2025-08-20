@@ -42,6 +42,12 @@ interface ProductWithImages extends Product {
     CurrencyPipe,
     AsyncPipe
   ],
+  providers: [
+    // Add the services that this component uses
+    FirebaseService,
+    CartService,
+    MatSnackBar,
+  ],
   template: `
     
     <div class="container">
