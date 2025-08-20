@@ -14,6 +14,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+
+// ADD THESE MISSING IMPORTS
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @Component({
   selector: 'app-checkout',
   standalone: true,
@@ -25,6 +33,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    // ADD THESE MISSING MODULES
+    MatStepperModule,      // for mat-stepper and mat-step
+    MatSelectModule,       // for mat-select and mat-option
+    MatOptionModule,       // for mat-option
+    MatRadioModule,        // for mat-radio-button
+    MatProgressSpinnerModule // for mat-spinner
   ],
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']

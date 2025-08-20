@@ -46,19 +46,19 @@ interface ProductWithImages extends Product {
     
     <div class="container">
       <h2>UniSparkle – Where every moment gets its glitter.</h2>
-      <div class="hero-carousel" *ngIf="slides && slides.length" [style.background-image]="slides[currentSlide]?.bg">
+      <div class="hero-carousel" *ngIf="slides && slides.length" [style.background-image]="slides[currentSlide].bg">
         <button mat-icon-button class="hero-nav prev" (click)="prevSlide()" aria-label="Previous slide">
           <mat-icon>chevron_left</mat-icon>
         </button>
         <div class="hero-content">
           <div class="hero-text">
-            <h2 class="hero-title">{{ slides[currentSlide]?.title }}</h2>
-            <p class="hero-subtitle">{{ slides[currentSlide]?.subtitle }}</p>
+            <h2 class="hero-title">{{ slides[currentSlide].title }}</h2>
+            <p class="hero-subtitle">{{ slides[currentSlide].subtitle }}</p>
             <br><br><br><br><br>
             <button mat-raised-button color="accent">Shop Now</button>
           </div>
           <div class="hero-image">
-            <img [src]="slides[currentSlide]?.image" alt="{{ slides[currentSlide]?.title }}">
+            <img [src]="slides[currentSlide].image" alt="{{ slides[currentSlide].title }}">
           </div>
         </div>
         <button mat-icon-button class="hero-nav next" (click)="nextSlide()" aria-label="Next slide">

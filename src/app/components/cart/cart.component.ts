@@ -1,17 +1,30 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CartItem } from '../../models/cart-item.model';
 import { CartService } from '../../services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-image-viewer',
+  standalone: true, // Add this if it's standalone
+  imports: [
+    CommonModule,
+    CurrencyPipe,
+    AsyncPipe,
+    RouterModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    // Add other required modules here
+  ],
   template: `
     <div class="image-viewer-container">
       <div class="image-viewer-header">
@@ -22,7 +35,7 @@ import { MatButtonModule } from '@angular/material/button';
         </div>
         <div class="header-controls">
           <span class="image-counter" *ngIf="data.images && data.images.length > 1">
-            {{ currentIndex + 1 }} / {{ data.images?.length || 0 }}
+            {{ currentIndex + 1 }} / {{ data.images.length || 0 }}
           </span>
           <button class="close-button" (click)="closeDialog()">
             <span>&times;</span>
@@ -56,7 +69,7 @@ import { MatButtonModule } from '@angular/material/button';
           <button class="nav-arrow right-arrow" 
                   *ngIf="data.images && data.images.length > 1"
                   (click)="nextImage()"
-                  [disabled]="currentIndex === (data.images?.length || 1) - 1">
+                  [disabled]="currentIndex === (data.images.length || 1) - 1">
             &#8250;
           </button>
         </div>
@@ -288,9 +301,7 @@ import { MatButtonModule } from '@angular/material/button';
       text-align: center;
       font-weight: 500;
     }
-  `],
-  standalone: true,
-    imports: [CommonModule, MatIconModule, MatButtonModule]
+  `]
 })
 export class ImageViewerComponent {
   currentIndex: number = 0;

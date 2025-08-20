@@ -10,11 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
+import { CommonModule } from '@angular/common'; // Add this for CommonModule
 
 @Component({
   selector: 'app-navbar',
    standalone: true, // Add this if it's a standalone component
   imports: [ // Add these imports
+    CommonModule,
     AsyncPipe,
     RouterLink,
     MatToolbarModule,
