@@ -8,7 +8,9 @@ import { MatMenuTrigger } from '@angular/material/menu';
   selector: 'app-navbar',
   template: `
   <mat-toolbar class="toolbar">
-    <img src="assets/navlogo.png" alt="Logo" class="nav-logo">
+    <a class="nav-logo-link" [routerLink]="['/products']" aria-label="Go to products">
+      <img src="assets/navlogo.png" alt="Logo" class="nav-logo">
+    </a>
     <span class="spacer"></span>
     <div class="toolbar-buttons">
       <button mat-button routerLink="/products">
@@ -122,6 +124,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
     object-fit: contain;
     margin-right: 16px;
     transition: all 0.3s ease;
+    cursor: pointer;
   }
 
   /* Responsive adjustments */
