@@ -9,6 +9,9 @@
     "test": "ng test"
   },
   "private": true,
+  "overrides": {
+      "chokidar": "3.6.0"
+  },
   "dependencies": {
     "@angular/animations": "^18.2.13",
     "@angular/cdk": "^18.2.14",
@@ -44,4 +47,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.4"
   }
+  
 }
