@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/unishopping/browser",
             "index": "src/index.html",
@@ -98,19 +98,15 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/unishopping/server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
             "production": {
-              "outputHashing": "media"
+              "buildTarget": "unishopping:build:production"
             },
             "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false,
-              "vendorChunk": true
+              "buildTarget": "unishopping:build:development"
             }
           },
           "defaultConfiguration": "production"
