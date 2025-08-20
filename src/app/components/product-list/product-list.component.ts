@@ -8,7 +8,16 @@ import { FirebaseService } from '../../services/firebase.service';
 import { CartService } from '../../services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 // Enhanced Product interface to ensure images are included
 interface ProductWithImages extends Product {
   images?: string[];
@@ -16,6 +25,23 @@ interface ProductWithImages extends Product {
 
 @Component({
   selector: 'app-product-list',
+
+  standalone: true, // Add this if using standalone components
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    MatButtonToggleModule,
+    MatTabsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatBadgeModule,
+    CurrencyPipe,
+    AsyncPipe
+  ],
   template: `
     
     <div class="container">
@@ -541,6 +567,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 @Component({
   selector: 'app-image-dialog',
+  standalone: true, // Add this if using standalone components
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    MatButtonToggleModule,
+    MatTabsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatBadgeModule,
+    CurrencyPipe
+  ],
   template: `
     <div class="dialog-header">
       <div class="product-details">

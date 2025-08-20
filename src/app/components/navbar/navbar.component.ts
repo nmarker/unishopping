@@ -3,9 +3,26 @@ import { CartService } from '../../services/cart.service';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { AsyncPipe } from '@angular/common'; // Add this
+import { RouterLink } from '@angular/router'; // Add this
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-navbar',
+   standalone: true, // Add this if it's a standalone component
+  imports: [ // Add these imports
+    AsyncPipe,
+    RouterLink,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatMenuModule
+  ],
   template: `
   <mat-toolbar class="toolbar">
     <a class="nav-logo-link" [routerLink]="['/products']" aria-label="Go to products">
